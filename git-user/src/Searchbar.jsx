@@ -1,8 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 const Searchbar = ()=>{
+    const [input,setInput] = useState("")
     return(
         <>
-        <h2>Search bar</h2>
+        <input type="Text" onChange={(e)=>e.target.value} />
+        <button>Search</button>
         </>
     )
 }
