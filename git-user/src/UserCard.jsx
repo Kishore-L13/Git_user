@@ -2,11 +2,18 @@ import React from "react";
 
 const UserCard = ({ user }) => {
   return (
-    <div>
-      <img src={user.avatar_url} width="100" alt="" />
-      <h3>{user.login}</h3>
-      <a href={user.html_url} target="_blank">View Profile</a>
-    </div>
+  <div className="card">
+  <img className="avatar" src={user.avatar_url} alt="" />
+  <h3 className="username">{user.login}</h3>
+  <a
+    className="profile-btn"
+    href={user.html_url}
+    target="_blank"
+    rel="noreferrer"
+  >
+    View Profile
+  </a>
+</div>
   );
 };
 

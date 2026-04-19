@@ -3,7 +3,7 @@ import UserCard from "./UserCard";
 
 const Gitprofile = ({ users }) => {
   return (
-    <div>
+  <div className="user-grid">
       {users.map((user) => (
         <UserCard key={user.id} user={user} />
       ))}

@@ -17,7 +17,7 @@ const Searchbar = ({ onSearch }) => {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button type="submit">Search</button>
+      <button className="search-btn" type="submit">Search</button>
     </form>
   );
 };

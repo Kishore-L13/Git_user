@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Searchbar from "./Searchbar";
 import Gitprofile from "./gitprofile";
-
+import "./App.css";
 function App() {
   const [users, setUsers] = useState([]);
 
