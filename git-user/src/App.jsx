@@ -14,8 +14,8 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>GitHub Finder</h1>
+    <div className="container">
+      <h1 className="title">GitHub Finder</h1>
       <Searchbar onSearch={searchUsers}/>
       <Gitprofile users={users}/>
     </div>

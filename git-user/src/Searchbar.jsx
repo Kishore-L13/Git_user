@@ -12,6 +12,7 @@ const Searchbar = ({ onSearch }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        className="search-input"
         placeholder="Search GitHub user..."
         value={text}
         onChange={(e) => setText(e.target.value)}
