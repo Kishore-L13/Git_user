@@ -1,42 +1,24 @@
-import React,{useState} from "react";
-const Searchbar = ()=>{
-    const [input, setInput] = useState("");
-const [user, setUser] = useState(null);
-const [loading, setLoading] = useState(false);
-const [error, setError] = useState(null);
-    const fetchUser = async () => {
-  try {
-    setLoading(true);
-    setError(null);
+import React, { useState } from "react";
 
-    const res = await fetch(`https://api.github.com/users/${input}`);
+const Searchbar = ({ onSearch }) => {
+  const [text, setText] = useState("");
 
-    if (!res.ok) throw new Error("User not found");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(text);
+  };
 
-    const data = await res.json();
-    setUser(data);
-  } catch (err) {
-    setError(err.message);
-  } finally {
-    setLoading(false);
-  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Search GitHub user..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button type="submit">Search</button>
+    </form>
+  );
 };
-    return(
-        <>
-    <input value={input} onChange={(e)=>setInput(e.target.value)} />
-    <button onClick={fetchUser}>Search</button>
-        {loading && <p>Loading...</p>}
-{error && <p>{error}</p>}
 
-{user && (
-  <div>
-    <img src={user.avatar_url} width="100" />
-    <h2>{user.name}</h2>
-    <p>Repos: {user.public_repos}</p>
-  </div>
-)}
-   
-        </>
-    )
-}
-export default Searchbar
+export default Searchbar;

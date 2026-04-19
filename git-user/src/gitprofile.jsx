@@ -1,9 +1,14 @@
 import React from "react";
-const gitprofile = ()=>{
-    return (
-        <>
-        <h1>Profile</h1>
-        </>
-    )
-}
-export default gitprofile
+import UserCard from "./UserCard";
+
+const Gitprofile = ({ users }) => {
+  return (
+    <div>
+      {users.map((user) => (
+        <UserCard key={user.id} user={user} />
+      ))}
+    </div>
+  );
+};
+
+export default Gitprofile;
